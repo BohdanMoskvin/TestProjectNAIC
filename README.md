@@ -2,5 +2,5 @@
 ***
 If you want to run test
 ```
-mvn -Dsuite=test.xml -P headless test
+mvn -D suiteXmlFile=test.xml -P headless test
 ```
