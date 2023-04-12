@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Regression suite">
+
+    <listeners>
+        <listener class-name="listener.ListenerTest"/>
+    </listeners>
+
+    <test name="Regression test">
+        <classes>
+            <class name="tests.TestCart"/>
+            <class name="tests.ItemTest"/>
+        </classes>
+    </test>
+</suite>
