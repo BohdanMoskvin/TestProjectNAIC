@@ -3,11 +3,13 @@ package healper;
 import basePages.AbstractBasePage;
 import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pages.CartPage;
 import pages.ItemPage;
 
+import java.util.List;
 import java.util.Objects;
 @Log4j
 public class HeaderHelper extends AbstractBasePage {
@@ -62,4 +64,5 @@ public class HeaderHelper extends AbstractBasePage {
         }
         return false;
     }
+
 }

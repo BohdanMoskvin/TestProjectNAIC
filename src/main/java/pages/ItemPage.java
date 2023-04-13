@@ -2,6 +2,7 @@ package pages;
 
 import basePages.AbstractBasePage;
 import healper.HeaderHelper;
+import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +10,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
+import java.util.Objects;
 
 @Log4j
 public class ItemPage extends AbstractBasePage {
@@ -26,7 +27,6 @@ public class ItemPage extends AbstractBasePage {
     public ItemPage open(String endPoint) {
         log.info("======================Open Item Page================================");
         openUrl(ENV + endPoint);
-        closeSmsAlert();
         return this;
     }
 
@@ -55,6 +55,7 @@ public class ItemPage extends AbstractBasePage {
 
     public ItemPage closeSmsAlert() {
         log.info("=====================Close SMS ALERT===========================");
+        waitForItemPageLoading(3);
         if (isElementPresent(By.xpath(CLOSE_SMS_ALERT)))
             smsAlert().click();
         return this;
@@ -79,6 +80,21 @@ public class ItemPage extends AbstractBasePage {
         urls.add("/wix-brand/filtr-masljanyj-wl7168-11658768/");
         urls.add("/fram-brand/filtr-masljanyj-ph2857a-11900067/");
         return urls;
+    }
+
+    @SneakyThrows
+    public boolean waitForItemPageLoading(int secondsToWait) {
+        String value = null;
+
+        for (int i = 0; i < secondsToWait; i++) {
+            String currentValue = payBtn().getText();
+            if (!Objects.equals(currentValue, value)) {
+                Thread.sleep(1000);
+            } else {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

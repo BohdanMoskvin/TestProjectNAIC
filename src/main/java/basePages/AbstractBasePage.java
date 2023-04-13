@@ -53,7 +53,6 @@ public abstract class AbstractBasePage {
     protected void openUrl(String url) {
         if (!driver.getCurrentUrl().equals(url)) {
             driver.get(url);
-            Thread.sleep(2000);
         }
     }
 
@@ -64,4 +63,15 @@ public abstract class AbstractBasePage {
             return false;
         }
     }
+
+//    public boolean isPageLoading (By locator){
+//        try {
+//            List<WebElement> elementList = driver.findElements(locator);
+//            return elementList.size() > 0;
+//        }catch (NoSuchElementException e){
+//            return false;
+//        }
+//
+//    }
+
 }

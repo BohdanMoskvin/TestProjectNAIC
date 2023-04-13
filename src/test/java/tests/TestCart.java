@@ -25,6 +25,7 @@ public class TestCart extends TestInit {
         for (String url : itemPage.getUrlProduct()) {
             itemPage
                     .open(url)
+                    .closeSmsAlert()
                     .clickPayBtn();
         }
         headerHelper
