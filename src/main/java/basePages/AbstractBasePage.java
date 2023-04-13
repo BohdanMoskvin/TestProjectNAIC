@@ -53,6 +53,7 @@ public abstract class AbstractBasePage {
     protected void openUrl(String url) {
         if (!driver.getCurrentUrl().equals(url)) {
             driver.get(url);
+            Thread.sleep(3000);
         }
     }
 

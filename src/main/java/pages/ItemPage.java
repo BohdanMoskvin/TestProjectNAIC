@@ -27,6 +27,7 @@ public class ItemPage extends AbstractBasePage {
     public ItemPage open(String endPoint) {
         log.info("======================Open Item Page================================");
         openUrl(ENV + endPoint);
+        closeSmsAlert();
         return this;
     }
 
@@ -55,7 +56,6 @@ public class ItemPage extends AbstractBasePage {
 
     public ItemPage closeSmsAlert() {
         log.info("=====================Close SMS ALERT===========================");
-        waitForItemPageLoading(3);
         if (isElementPresent(By.xpath(CLOSE_SMS_ALERT)))
             smsAlert().click();
         return this;
@@ -81,20 +81,4 @@ public class ItemPage extends AbstractBasePage {
         urls.add("/fram-brand/filtr-masljanyj-ph2857a-11900067/");
         return urls;
     }
-
-    @SneakyThrows
-    public boolean waitForItemPageLoading(int secondsToWait) {
-        String value = null;
-
-        for (int i = 0; i < secondsToWait; i++) {
-            String currentValue = payBtn().getText();
-            if (!Objects.equals(currentValue, value)) {
-                Thread.sleep(1000);
-            } else {
-                return true;
-            }
-        }
-        return false;
-    }
-
 }
