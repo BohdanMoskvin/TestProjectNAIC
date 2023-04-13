@@ -1,12 +1,12 @@
 package tests;
 
 
+import listener.Retry;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.ItemPage;
-
 
 public class ItemTest extends TestInit {
     private ItemPage itemPage;
@@ -32,6 +32,7 @@ public class ItemTest extends TestInit {
         String actualName = itemPage
                 .open(url)
                 .getProductName();
+
 
         Assert.assertEquals(actualName, expectedName);
         Assert.assertTrue(itemPage.productName().isDisplayed());

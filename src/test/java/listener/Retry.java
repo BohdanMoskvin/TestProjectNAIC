@@ -4,6 +4,7 @@ import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;
 
 import lombok.extern.log4j.Log4j;
+import org.testng.annotations.Listeners;
 
 @Log4j
 public class Retry implements IRetryAnalyzer {

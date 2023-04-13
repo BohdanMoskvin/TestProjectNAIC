@@ -6,6 +6,7 @@ import lombok.extern.log4j.Log4j;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pages.CartPage;
+import pages.ItemPage;
 
 import java.util.Objects;
 @Log4j
@@ -22,7 +23,6 @@ public class HeaderHelper extends AbstractBasePage {
     private final static String CART_BTN_ICON = "//button[@aria-label='dropdown-cart']";
     private final static String GO_TO_CART = "//a[@aria-label='Перейти до кошика']";
     private final static String CART_COUNT = "//div[contains(@class,'HeaderUserMenuBadge')]";
-
 
     private WebElement cartBtnIcon() {
         return waitClickableElementByXpath(CART_BTN_ICON);

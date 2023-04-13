@@ -13,4 +13,5 @@
             <class name="tests.ItemTest"/>
         </classes>
     </test>
+
 </suite>
