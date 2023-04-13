@@ -65,6 +65,12 @@
         <artifactId>allure-testng</artifactId>
         <version>${allure.version}</version>
     </dependency>
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>${surefire.plugin.version}</version>
+            <type>maven-plugin</type>
+        </dependency>
     </dependencies>
 
     <build>
@@ -85,7 +91,7 @@
                     </argLine>
                     <suiteXmlFiles>
                         <!--suppress UnresolvedMavenProperty -->
-                        <suiteXmlFile>src/test/resources/suites/${suite}</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/suites/${suiteXmlFile}</suiteXmlFile>
                     </suiteXmlFiles>
                     <systemPropertyVariables>
                         <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
@@ -115,7 +121,7 @@
         <profile>
             <id>headless</id>
             <properties>
-                <headless.mode>true</headless.mode>
+                <headless.mode>false</headless.mode>
             </properties>
         </profile>
     </profiles>
