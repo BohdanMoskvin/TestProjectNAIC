@@ -27,7 +27,6 @@ public class ItemPage extends AbstractBasePage {
     public ItemPage open(String endPoint) {
         log.info("======================Open Item Page================================");
         openUrl(ENV + endPoint);
-        closeSmsAlert();
         return this;
     }
 
