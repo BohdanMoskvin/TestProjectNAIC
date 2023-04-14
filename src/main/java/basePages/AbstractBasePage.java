@@ -27,6 +27,13 @@ public abstract class AbstractBasePage {
         actions = new Actions(driver);
         jse = (JavascriptExecutor) driver;
     }
+    public void scrollPageDown() {
+        jse.executeScript("window.scrollBy(0,500)");
+    }
+    public void scrollIntoView(WebElement element) {
+        JavascriptExecutor jse = (JavascriptExecutor)driver;
+        jse.executeScript("arguments[0].scrollIntoView(true);", element);
+    }
 
     protected WebElement waitVisibleOfElement(String locator) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));

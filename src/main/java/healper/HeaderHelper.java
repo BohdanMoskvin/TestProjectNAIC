@@ -4,6 +4,7 @@ import basePages.AbstractBasePage;
 import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pages.CartPage;
@@ -11,6 +12,7 @@ import pages.ItemPage;
 
 import java.util.List;
 import java.util.Objects;
+
 @Log4j
 public class HeaderHelper extends AbstractBasePage {
     public HeaderHelper(WebDriver driver) {
@@ -34,13 +36,14 @@ public class HeaderHelper extends AbstractBasePage {
         return waitClickableElementByXpath(GO_TO_CART);
     }
 
-    private WebElement getCartCount(){
+    private WebElement getCartCount() {
         return waitVisibilityOfElementLocated(CART_COUNT);
     }
 
     public HeaderHelper clickCartBtnIcon() {
         log.info("==================== Click Icon Cart =======================");
         cartBtnIcon().click();
+        scrollIntoView(goToCart());
         return this;
     }
 
