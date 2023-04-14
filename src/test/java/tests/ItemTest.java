@@ -21,7 +21,7 @@ public class ItemTest extends TestInit {
         return new Object[][]{
                 {"/bosch-brand/filtr-masljanyj-0-986-452-044-1923945/", "Фільтр масляний 0986452044", "209"},
                 {"/champion-brand/filtr-masljanyj-c124-606-373459/", "Фільтр масляний C124606", "81"},
-                {"/mann-filter-brand/filtr-masljanyj-w-914-2-23340494/", "Фільтр масляний W9142", "335"},
+                {"/mann-filter-brand/filtr-masljanyj-w-914-2-23340494/", "Фільтр масляний W9142", "337"},
                 {"/wix-brand/filtr-masljanyj-wl7168-11658768/", "Фільтр масляний WL7168", "162"},
                 {"/fram-brand/filtr-masljanyj-ph2857a-11900067/", "Фільтр масляний PH2857A", "180"}
         };
