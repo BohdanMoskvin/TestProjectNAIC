@@ -7,6 +7,7 @@ import lombok.extern.log4j.Log4j;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +22,7 @@ public class ItemPage extends AbstractBasePage {
 
     private final static String PRODUCT_NAME = "//div[@id='page-title']/h1";
     private final static String PRODUCT_PRICE = "(//div[@class='ProductPriceBlockstyle__ProductPriceValue-sc-1pwmnni-6 DstHZ'])[2]";
-    private final static String PAY_BTN = "(//div[@data-testid='ProductPrice']//button[@aria-label='Купити'])[2]";
+    private final static String PAY_BTN = "(//div[@data-testid='ProductPrice']//*[@aria-label])[2]";
     private final static String CLOSE_SMS_ALERT = "(//span[@role='button'])[1]";
 
     public ItemPage open(String endPoint) {
@@ -49,7 +50,7 @@ public class ItemPage extends AbstractBasePage {
     public ItemPage clickPayBtn() {
         log.info("=====================Click Pay Button===========================");
         payBtn().click();
-        new HeaderHelper(driver).waitForCartItemsCountChainged(3);
+        wait.until(ExpectedConditions.attributeContains(By.xpath(PAY_BTN),"aria-label", "cart"));
         return this;
     }
 

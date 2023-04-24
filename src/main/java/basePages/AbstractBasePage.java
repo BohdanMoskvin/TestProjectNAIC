@@ -71,14 +71,4 @@ public abstract class AbstractBasePage {
         }
     }
 
-//    public boolean isPageLoading (By locator){
-//        try {
-//            List<WebElement> elementList = driver.findElements(locator);
-//            return elementList.size() > 0;
-//        }catch (NoSuchElementException e){
-//            return false;
-//        }
-//
-//    }
-
 }

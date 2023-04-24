@@ -1,17 +1,10 @@
 package healper;
 
 import basePages.AbstractBasePage;
-import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pages.CartPage;
-import pages.ItemPage;
-
-import java.util.List;
-import java.util.Objects;
 
 @Log4j
 public class HeaderHelper extends AbstractBasePage {
@@ -26,7 +19,6 @@ public class HeaderHelper extends AbstractBasePage {
 
     private final static String CART_BTN_ICON = "//button[@aria-label='dropdown-cart']";
     private final static String GO_TO_CART = "//a[@aria-label='Перейти до кошика']";
-    private final static String CART_COUNT = "//div[contains(@class,'HeaderUserMenuBadge')]";
 
     private WebElement cartBtnIcon() {
         return waitClickableElementByXpath(CART_BTN_ICON);
@@ -34,10 +26,6 @@ public class HeaderHelper extends AbstractBasePage {
 
     private WebElement goToCart() {
         return waitClickableElementByXpath(GO_TO_CART);
-    }
-
-    private WebElement getCartCount() {
-        return waitVisibilityOfElementLocated(CART_COUNT);
     }
 
     public HeaderHelper clickCartBtnIcon() {
@@ -52,20 +40,4 @@ public class HeaderHelper extends AbstractBasePage {
         goToCart().click();
         return new CartPage(driver);
     }
-
-    @SneakyThrows
-    public boolean waitForCartItemsCountChainged(int secondsToWait) {
-        String value = getCartCount().getText();
-
-        for (int i = 0; i < secondsToWait; i++) {
-            String currentValue = getCartCount().getText();
-            if (Objects.equals(currentValue, value)) {
-                Thread.sleep(1000);
-            } else {
-                return true;
-            }
-        }
-        return false;
-    }
-
 }
